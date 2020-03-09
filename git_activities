@@ -1,0 +1,263 @@
+Script started on Mon Mar  9 02:09:33 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ git init
+Initialized empty Git repository in /Users/Spiderboy/Documents/japigit/.git/
+bash-3.2$ git config --global user.name "Kyle Kozumplik"
+bash-3.2$ git config --global user.email bkozumpl@asu.edu
+bash-3.2$ git add "japi.py"
+bash-3.2$ git add "japi.out"
+bash-3.2$ git commit -m "project deliv 5"
+[master (root-commit) b467c98] project deliv 5
+ 2 files changed, 34 insertions(+)
+ create mode 100644 japi.out
+ create mode 100644 japi.py
+bash-3.2$ git commit -am "stock stuff"
+On branch master
+Untracked files:
+	[31mgit_activities[m
+
+nothing added to commit but untracked files present
+bash-3.2$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+bash-3.2$ git status -s
+[31m??[m git_activities
+bash-3.2$ echo "hello there" > hello.txt
+bash-3.2$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+	[31mhello.txt[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+bash-3.2$ git status -s
+[31m??[m git_activities
+[31m??[m hello.txt
+bash-3.2$ git add hello.txt
+bash-3.2$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	[32mnew file:   hello.txt[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+bash-3.2$ echo "we are testing git status" >> hello.txt
+bash-3.2$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	[32mnew file:   hello.txt[m
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   hello.txt[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+bash-3.2$ git diff
+[?1h=[1mdiff --git a/hello.txt b/hello.txt[m[m
+[1mindex c7c7da3..2facf0b 100644[m[m
+[1m--- a/hello.txt[m[m
+[1m+++ b/hello.txt[m[m
+[36m@@ -1 +1,2 @@[m[m
+ hello there[m[m
+[32m+[m[32mwe are testing git status[m[m
+[K[?1l>bash-3.2$ git commit -m "comment"
+[master 11ed524] comment
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+bash-3.2$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   hello.txt[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bash-3.2$ git add hello.txt
+bash-3.2$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	[32mmodified:   hello.txt[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+bash-3.2$ git log
+[?1h=[33mcommit 11ed5248949c371b65d42d2624e980c50dbbeb5b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m[m
+Author: Kyle Kozumplik <bkozumpl@asu.edu>[m
+Date:   Mon Mar 9 02:13:06 2020 -0400[m
+[m
+    comment[m
+[m
+[33mcommit b467c98ec8ae08f78552e6a1b83a9f7ccf1f7040[m[m
+Author: Kyle Kozumplik <bkozumpl@asu.edu>[m
+Date:   Mon Mar 9 02:10:45 2020 -0400[m
+[m
+    project deliv 5[m
+[K[?1l>bash-3.2$ git status -s
+[32mM[m  hello.txt
+[31m??[m git_activities
+bash-3.2$ git log -oneline
+fatal: unrecognized argument: -oneline
+bash-3.2$ git log --oneline
+[?1h=[33m11ed524[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m comment[m
+[33mb467c98[m project deliv 5[m
+[K[?1l>bash-3.2$ git branch
+[?1h=* [32mmaster[m[m
+[K[?1l>bash-3.2$ echo "master version" >> hello.txt
+bash-3.2$ git commit -am "master version"
+[master 0f250e8] master version
+ 1 file changed, 2 insertions(+)
+bash-3.2$ git branch feature
+bash-3.2$ git branch
+[?1h=  feature[m[m
+* [32mmaster[m[m
+[K[?1l>bash-3.2$ git checkout feature
+Switched to branch 'feature'
+bash-3.2$ git branch
+[?1h=* [32mfeature[m[m
+  master[m[m
+[K[?1l>bash-3.2$ echo "new file
+> 
+bash-3.2$ echo "new file" > hello_feature
+bash-3.2$ echo "feature version" >> hello.txt
+bash-3.2$ git add hello_feature
+bash-3.2$ git add hello.txt
+bash-3.2$ git commit -m "feature branch"
+[feature a2a9477] feature branch
+ 2 files changed, 2 insertions(+)
+ create mode 100644 hello_feature
+bash-3.2$ git checkout master
+Switched to branch 'master'
+bash-3.2$ git branch
+[?1h=  feature[m[m
+* [32mmaster[m[m
+[K[?1l>bash-3.2$ echo "Initial content">merge.txt
+bash-3.2$ git add merge.txt
+bash-3.2$ git commit -m "adding new file on master"
+[master 5549e0f] adding new file on master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 merge.txt
+bash-3.2$ git branch newbranch
+bash-3.2$ echo "Update on master">merge.txt
+bash-3.2$ git add merge.txt
+bash-3.2$ git commit -m "update on master"
+[master 2a1be2b] update on master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bash-3.2$ git checkout newbranch
+Switched to branch 'newbranch'
+bash-3.2$ echo "Update on newbranch">merge.txt
+bash-3.2$ git commit -am "update on newbranch"
+[newbranch f3e99c4] update on newbranch
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bash-3.2$ git checkout master
+Switched to branch 'master'
+bash-3.2$ git merge newbranch
+Auto-merging merge.txt
+CONFLICT (content): Merge conflict in merge.txt
+Automatic merge failed; fix conflicts and then commit the result.
+bash-3.2$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	[31mboth modified:   merge.txt[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bash-3.2$ cat merge.txt
+<<<<<<< HEAD
+Update on master
+=======
+Update on newbranch
+>>>>>>> newbranch
+bash-3.2$ echo "merged version">merge.txt
+bash-3.2$ git add merge.txt
+bash-3.2$ git commit -m "Fixed conflicts"
+[master a7c0234] Fixed conflicts
+bash-3.2$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+bash-3.2$ git branch -d newbranch
+Deleted branch newbranch (was f3e99c4).
+bash-3.2$ echo "file to delete">to_delete.txt
+bash-3.2$ git add to_delete.txt
+bash-3.2$ git commit -m "yet another lab file"
+[master d0c0289] yet another lab file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 to_delete.txt
+bash-3.2$ git rm to_delete.txt
+rm 'to_delete.txt'
+bash-3.2$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	[32mdeleted:    to_delete.txt[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31mgit_activities[m
+
+bash-3.2$ ls
+git_activities	hello.txt	japi.out	japi.py		merge.txt
+bash-3.2$ git rm to_delete.txt
+fatal: pathspec 'to_delete.txt' did not match any files
+bash-3.2$ git status -sb
+## [32mmaster[m
+[32mD[m  to_delete.txt
+[31m??[m git_activities
+bash-3.2$ git commit -m "<file deletion>"
+[master 1b4fda0] <file deletion>
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 to_delete.txt
+bash-3.2$ exit
+exit
+
+Script done on Mon Mar  9 02:23:13 2020
